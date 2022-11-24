@@ -1,10 +1,7 @@
-# from movielist.forms import MovieAddForm
 from movielist.models import Movie, Person
 from movielist.serializers import MovieSerializer, PersonSerializer
 from rest_framework import generics
-from django.views import View
-from django.shortcuts import redirect
-from django.shortcuts import render
+
 
 
 class MovieListView(generics.ListCreateAPIView):
@@ -17,4 +14,6 @@ class MovieView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = MovieSerializer
 
 
-
+class PersonListView(generics.ListCreateAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
